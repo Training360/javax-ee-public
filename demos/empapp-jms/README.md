@@ -1,0 +1,2 @@
+/subsystem=messaging-activemq/server=default/jms-queue=EmployeeQueue:add(entries=[java:/jms/queue/EmployeeQueue])
+/subsystem=messaging-activemq/server=default/address-setting=jms.queue.EmployeeQueue:add(redelivery-delay=1500,redelivery-multiplier=1.5,max-redelivery-delay=5000, max-delivery-attempts=-1)
