@@ -203,3 +203,17 @@ data-source add --name=EmployeeDS --jndi-name=java:/jdbc/EmployeeDS \
 /subsystem=datasources:read-resource
 /subsystem=datasources:read-resource(recursive=true)
 ```
+
+## Enterprise JavaBeans
+
+Az EJB kliensnél, amikor felvesszük a `wildfly-ejb-client-bom` függőséget, a `type`-ot is meg kell adni.
+Azaz helyesen:
+
+```xml
+<dependency>
+  <groupId>org.wildfly</groupId>
+  <artifactId>wildfly-ejb-client-bom</artifactId>
+  <version>15.0.1.Final</version>
+  <type>pom</type>
+</dependency>
+```
