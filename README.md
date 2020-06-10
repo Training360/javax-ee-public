@@ -1,5 +1,40 @@
 # JAVAX-EE - Enterprise alkalmazásfejlesztés Java EE környezetben
 
+## Javasolt haladás
+
+* Először nézd meg a videót! A videóban szereplő forráskódot a [demos](demos) könyvtárban találod, a legtöbb videóhoz megtalálható ott a forráskód.
+Lentebb a tematikában található, hogy melyik leckéhez melyik könyvtárban.
+* Minden videóhoz van gyakorlati feladat, melynek a leírását itt találod: [gyakorlatok.md](gyakorlatok.md).
+  A gyakorlati feladatok egymásra épülnek.
+
+## Tematika
+
+* A Java EE szabvány
+* Contexts and Dependency Injection (`intro-cdi`)
+* Egyszerű Java EE alkalmazás (`empapp-simple`)
+* Űrlap (`empapp-form`)
+* Java EE alkalmazás tesztelése (`empapp-test`)
+* Adatbázis hozzáférés (`empapp-jdbc`)
+* Séma inicializálás Flyway eszközzel (`empapp-flyway`)
+* JPA (`empapp-jpa`)
+* Tranzakciókezelés (`empapp-transaction`)
+* Enterprise JavaBeans (`empapp-ejb`, `empapp-client`)
+* EJB Stateful session bean (`empapp-stateful`, `empapp-stateful-client`)
+* EJB Singleton session bean (`empapp-singleton`)
+* EJB Callback metódusok
+* EJB Timer Service
+* JSF (`emp-jsf`)
+* JSF űrlap (`emp-jsf-form`)
+* Bean Validation (`intro-validation`)
+* Bean Validation saját validáció (`intro-validation`)
+* Bean Validation többnyelvűség (`intro-validation`)
+* Bean Validation Validation Group (`intro-validation`)
+* Bean Validation Java EE környezetben (`empapp-validation`)
+* Naplózás (`empapp-logging`)
+* SOAP webszolgáltatások JAX-WS-sel (`empapp-ws`)
+* RESTful webszolgáltatások JAX-RS-sel (`empapp-rs`)
+* Aszinkron üzenetkezelés JMS-sel (`empapp-jms`)
+
 ## Contexts and Dependency Injection
 
 ### Weld Java 12-vel
@@ -86,7 +121,16 @@ public class EncodingFilter implements Filter {
 }
 ```
 
+Megtalálható itt is: [EncodingFilter.java](demos/empapp-encoding/src/main/java/empapp/EncodingFilter.java)
+
 ## Java EE alkalmazás tesztelése
+
+### Arquillian teszt futtatása IntelliJ IDEA Ulitimate-tel
+
+Amennyiben nem Community, hanem Ultimate szerkesztőt használsz, az IDEA futtatáskor fel fogja dobni az
+Arquillian Plugin ablakát. Itt az _Arquillian Container_ fülön meg kell nyomni a _Configure_ gombot,
+majd a plusz jellel egy _Remote/Wildfly Remote_ konténert kell kiválasztani. Utána a fő ablakon
+a mellette lévő rádiógombot be is kell klikkelni. Ezután már megnyomható a _Run_ gomb.
 
 ### Port az Arquillian pluginnél
 
