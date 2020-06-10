@@ -217,3 +217,6 @@ Azaz helyesen:
   <type>pom</type>
 </dependency>
 ```
+
+Ha az a hibaüzenetet kapjuk, hogy `Caused by: java.io.EOFException: Read past end of file`,
+akkor az `Employee` osztály nem implementálja a `Serializable` interfészt.
