@@ -25,6 +25,7 @@
             <groupId>org.wildfly</groupId>
             <artifactId>wildfly-ejb-client-bom</artifactId>
             <version>15.0.1.Final</version>
+            <type>pom</type>
         </dependency>
     </dependencies>
 
