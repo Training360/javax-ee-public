@@ -15,7 +15,7 @@ import javax.sql.DataSource;
 @TransactionManagement(TransactionManagementType.BEAN)
 public class DbMigrator {
 
-    @Resource(mappedName = "java:/jdbc/EmployeeDS")
+    @Resource(mappedName = "java:jdbc/EmployeeDS")
     private DataSource dataSource;
 
     @PostConstruct
