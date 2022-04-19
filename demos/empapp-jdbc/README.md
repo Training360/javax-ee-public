@@ -13,7 +13,7 @@ create table employees (id bigint auto_increment, emp_name varchar(255),
 A `jboss-cli.bat` állományt elindítva a parancssorba beírandó:
 
 connect localhost
-deploy "~/mysql-connector-java-8.0.12.jar"
+deploy "~/mariadb-java-client-2.3.0.jar"
 /subsystem=datasources:installed-drivers-list
 data-source add --name=EmployeeDS --jndi-name=java:/jdbc/EmployeeDS --driver-name=mariadb-java-client-2.3.0.jar --connection-url=jdbc:mysql://localhost/employees?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC --user-name=employees --password=employees
 /subsystem=datasources:read-resource
