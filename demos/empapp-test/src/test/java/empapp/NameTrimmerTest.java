@@ -1,6 +1,5 @@
 package empapp;
 
-import empapp.empapp.NameTrimmer;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
