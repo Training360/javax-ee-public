@@ -16,30 +16,32 @@ Feladatként egy kedvenc helyeket nyilvántartó alkalmazást kell fejleszteni.
 Egy kedvenc helyet a `Location` osztály reprezentál. Rendelkezik egy azonosítóval, névvel
 és két koordinátával (rendre `Long id`, `String name`, `double lat`, `double lon`).
 
-Hozz létre egy új projektet `locations` néven.
+Hozz létre egy új projektet `locations` néven!
 
-Létre kell hozni egy `LocationService` és `LocationsDao` osztályt.
+Létre kell hozni egy `LocationDao` és egy `LocationService` osztályt. Mindkettő CDI bean legyen!
+
 A  `LocationsDao` osztály a `Location` példányokat egy belső
-listában tárolja.
+listában tárolja. Ezt a `Collections.synchronizedList()` metódussal hozd létre, hogy szálbiztos legyen!
+Az azonosító generálására vegyél fel egy `AtomicLong idGenerator` attribútumot, és
+új kedvenc hely létrehozásakor hívd meg ennek az `incrementAndGet()` metódusát! (Ez így szintén szálbiztos.)
+
+A `LocationDao` metódusai rendre:
+
+* `List<Location> findAll()` - összes kedvenc hely listázása
+* `Location save(String name, double lat, double lon)` - kedvenc hely létrehozása, visszaad egy objektumot, melynek az `id` attribútuma is ki van töltve
+* `Location findById(long id)` - kedvenc hely keresése id alapján
+* `Location update(long id, String name, double lat, double lon)` - kedvenc hely módosítása id alapján, visszaad egy módosított objektumot
+* `void delete(long id)` - kedvenc hely törlése
+
+A `LocationService` delegálja a kéréseket a `LocationDao` osztálynak. Legyen konstruktor injection.
 
 A `LocationService` metódusai:
 
 * `List<Location> listLocations()` - összes kedvenc hely listázása
 * `void createLocation(String name, double lat, double lon)` - kedvenc hely létrehozása
-* `getLocationById(long id)` - kedvenc hely keresése id alapján
+* `Location getLocationById(long id)` - kedvenc hely keresése id alapján
 * `void updateLocation(long id, String name, double lat, double lon)` - kedvenc hely módosítása id alapján
-* `deleteLocation(long id)` - kedvenc hely törlése
-
-A `LocationDao` metódusai rendre:
-
-* `List<Location> findAll()` - összes kedvenc hely listázása
-* `void save(String name, double lat, double lon)` - kedvenc hely létrehozása
-* `findById(long id)` - kedvenc hely keresése id alapján
-* `void update(long id, String name, double lat, double lon)` - kedvenc hely módosítása id alapján
-* `delete(long id)` - kedvenc hely törlése
-
-A `LocationService` delegálja a kéréseket a `LocationDao` osztálynak. Legyen konstruktor injection.
-Mindkettő CDI bean legyen!
+* `void deleteLocation(long id)` - kedvenc hely törlése
 
 Írj egy `LocationMain` osztályt, mely elindítja a CDI konténert, lekéri a
 `LocationService` beant, majd meghívja rajta a fenti metódusokat.
@@ -48,6 +50,8 @@ Mindkettő CDI bean legyen!
 `@InjectMocks` annotációk használatával)!
 Írj egy integrációs tesztet a `LocationService` osztály metódusaira! Pl. egy
 `Location` példány létrehozása, elmentése, majd kilistázása.
+
+A generált id a visszaadott példányból lekérhető.
 
 ## Egyszerű Java EE alkalmazás
 
