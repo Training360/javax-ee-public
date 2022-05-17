@@ -57,8 +57,12 @@ A generált id a visszaadott példányból lekérhető.
 
 Módosítsd az alkalmazást, hogy `war` típusú legyen! Módosítsd a `pom.xml`-ben
 a függőségeket, vedd fel a megfelelő plugineket! Hozz létre egy servletet és egy
-JSP-t, melynek segítségével listázni lehet a kedvenc helyeket. Ki kell írni az
-összes tulajdonságukat. Mindkét CDI bean legyen singleton session bean!
+JSP-t, melynek segítségével listázni lehet a kedvenc helyeket! 
+A videóban szereplő beanre itt nincs szükség, a servlet közvetlenül hívhatja
+az előző feladatban létrehozott `LocationService` `listLocations()` metódusát. 
+Ki kell írni a kedvenc helyek
+összes tulajdonságát. A `LocationService` és a `LocationDao` osztályról
+a `@Named` annotáció eltávolítható, és legyenek singleton session beanek!
 
 ## Űrlap
 
