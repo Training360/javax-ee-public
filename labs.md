@@ -20,7 +20,7 @@ Hozz létre egy új projektet `locations` néven!
 
 Létre kell hozni egy `LocationDao` és egy `LocationService` osztályt. Mindkettő CDI bean legyen!
 
-A  `LocationsDao` osztály a `Location` példányokat egy belső
+A  `LocationDao` osztály a `Location` példányokat egy belső
 listában tárolja. Ezt a `Collections.synchronizedList()` metódussal hozd létre, hogy szálbiztos legyen!
 Az azonosító generálására vegyél fel egy `AtomicLong idGenerator` attribútumot, és
 új kedvenc hely létrehozásakor hívd meg ennek az `incrementAndGet()` metódusát! (Ez így szintén szálbiztos.)
@@ -38,9 +38,9 @@ A `LocationService` delegálja a kéréseket a `LocationDao` osztálynak. Legyen
 A `LocationService` metódusai:
 
 * `List<Location> listLocations()` - összes kedvenc hely listázása
-* `void createLocation(String name, double lat, double lon)` - kedvenc hely létrehozása
+* `Location createLocation(String name, double lat, double lon)` - kedvenc hely létrehozása
 * `Location getLocationById(long id)` - kedvenc hely keresése id alapján
-* `void updateLocation(long id, String name, double lat, double lon)` - kedvenc hely módosítása id alapján
+* `Location updateLocation(long id, String name, double lat, double lon)` - kedvenc hely módosítása id alapján
 * `void deleteLocation(long id)` - kedvenc hely törlése
 
 Írj egy `LocationMain` osztályt, mely elindítja a CDI konténert, lekéri a
@@ -98,7 +98,7 @@ create table locations(id int auto_increment primary key, name varchar(255), lat
 insert into locations(name, lat, lon) values ('Budapest', 47.4979, 19.0402);
 ```
 
-Hozz létre egy `LocationsDao` osztályt, és abba implementáld a metódusokat service-ben
+Hozz létre egy `LocationDao` osztályt, és abba implementáld a metódusokat service-ben
 szereplő metódusokat JDBC használatával! A service delegálja a kéréseket a dao beannek!
 
 ## Séma inicializálás Flyway eszközzel
@@ -108,7 +108,7 @@ mely létrehozza a táblát.
 
 ## JPA
 
-Írd át a `LocationsDao` osztályt, hogy JPA műveletekkel működjön!
+Írd át a `LocationDao` osztályt, hogy JPA műveletekkel működjön!
 
 ## Tranzakciókezelés
 
