@@ -195,7 +195,7 @@ meg egy pozitív egész számot tartalmazhat csak (nem lehet nulla)!
 ## Bean Validation Java EE környezetben
 
 Ellenőrizd, hogy a név nem-e üres, valamint azt, hogy a koordináták a megfelelő
-formátumban vannak-e beírva! A JSF kontrollerben lévő attribótumra helyezd el
+formátumban vannak-e beírva! A JSF kontrollerben lévő attribútumra helyezd el
 a Bean Validation annotációkat!
 
 ## Naplózás
