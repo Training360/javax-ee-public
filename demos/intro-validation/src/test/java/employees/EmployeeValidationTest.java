@@ -43,7 +43,7 @@ public class EmployeeValidationTest {
 
     @Test
     public void testZipCodeInvalid() {
-        Employee employee = new Employee("John Doe", 200_000, "HU", "2071A");
+        Employee employee = new Employee("John Doe", 200_000, "EN", "2071A");
 
         ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
         Validator validator = validatorFactory.getValidator();
@@ -93,7 +93,7 @@ public class EmployeeValidationTest {
 
     @Test
     public void testHuButZipIsLongerThanFour() {
-        Employee employee = new Employee("John Doe", 200_005, "HU", "20711");
+        Employee employee = new Employee("John Doe", 200_000, "HU", "20711");
 
         ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
         Validator validator = validatorFactory.getValidator();
