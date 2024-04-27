@@ -1,0 +1,11 @@
+# Add MySQL module
+module add --name=com.mysql --resources=mysql-connector-j-8.3.0.jar --dependencies=javax.api,javax.transaction.api
+
+# Add MySQL driver
+/subsystem=datasources/jdbc-driver=mysql:add(driver-name=mysql,driver-module-name=com.mysql,driver-xa-datasource-class-name=com.mysql.cj.jdbc.MysqlXADataSource)
+
+# Create DataSource
+data-source add --name=EmployeeDS --jndi-name=java:/jdbc/EmployeeDS --driver-name=mysql --connection-url=${env.DB_CONNECTION_URL:jdbc:mysql://localhost/employees} --user-name=${DB_USERNAME:employees} --password=${DB_PASSWORD:employees}
+
+# Create queue
+jms-queue add --queue-address=EmployeeQueue --entries=java:/jms/queue/EmployeeQueue,java:jboss/exported/queue/EmployeeQueue
