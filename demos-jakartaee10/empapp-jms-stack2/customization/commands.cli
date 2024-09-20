@@ -1,0 +1,11 @@
+# Add PostgreSQL module
+module add --name=com.postgresql --resources=postgresql-42.7.4.jar --dependencies=javax.api,javax.transaction.api
+
+# Add PostgreSQL driver
+/subsystem=datasources/jdbc-driver=postgresql:add(driver-name=postgresql,driver-module-name=com.postgresql,driver-xa-datasource-class-name=org.postgresql.xa.PGXADataSource)
+
+# Create DataSource
+data-source add --name=EmployeeDS --jndi-name=java:/jdbc/EmployeeDS --driver-name=postgresql --connection-url=${env.DB_CONNECTION_URL:jdbc:postgresql://localhost:5432/employees} --user-name=${DB_USERNAME:employees} --password=${DB_PASSWORD:employees}
+
+# Create queue
+jms-queue add --queue-address=EmployeeQueue --entries=java:/jms/queue/EmployeeQueue,java:jboss/exported/queue/EmployeeQueue

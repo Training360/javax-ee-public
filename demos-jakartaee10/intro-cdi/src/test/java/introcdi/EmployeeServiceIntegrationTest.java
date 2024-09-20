@@ -1,17 +1,17 @@
 package introcdi;
 
-import org.junit.Test;
+import jakarta.enterprise.inject.se.SeContainer;
+import jakarta.enterprise.inject.se.SeContainerInitializer;
+import org.junit.jupiter.api.Test;
 
-import javax.enterprise.inject.se.SeContainer;
-import javax.enterprise.inject.se.SeContainerInitializer;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class EmployeeServiceIntegrationTest {
+class EmployeeServiceIntegrationTest {
 
     @Test
-    public void testSaveAndList() {
+    void saveAndList() {
         try(SeContainer container = SeContainerInitializer.newInstance().initialize()) {
             EmployeeService employeeService = container.select(EmployeeService.class).get();
             employeeService.saveEmployee("John Doe");

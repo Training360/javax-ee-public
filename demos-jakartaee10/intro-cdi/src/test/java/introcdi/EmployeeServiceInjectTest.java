@@ -1,23 +1,23 @@
 package introcdi;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.mockito.Mockito.verify;
 
-@RunWith(MockitoJUnitRunner.class)
-public class EmployeeServiceInjectTest {
+@ExtendWith(MockitoExtension.class)
+class EmployeeServiceInjectTest {
     @Mock
-    private EmployeeDao employeeDao;
+    EmployeeDao employeeDao;
 
     @InjectMocks
-    private EmployeeService employeeService;
+    EmployeeService employeeService;
 
     @Test
-    public void testSaveEmployee() {
+    void saveEmployee() {
         employeeService.saveEmployee("  John Doe  ");
         verify(employeeDao).saveEmployee("John Doe");
     }

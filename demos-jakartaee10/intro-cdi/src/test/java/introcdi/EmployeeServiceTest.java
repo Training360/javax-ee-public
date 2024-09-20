@@ -1,18 +1,18 @@
 package introcdi;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import static org.mockito.Mockito.verify;
 
-public class EmployeeServiceTest {
+class EmployeeServiceTest {
 
-    private EmployeeDao employeeDao = Mockito.mock(EmployeeDao.class);
+    EmployeeDao employeeDao = Mockito.mock(EmployeeDao.class);
 
-    private EmployeeService employeeService = new EmployeeService(employeeDao);
+    EmployeeService employeeService = new EmployeeService(employeeDao);
 
     @Test
-    public void testSaveEmployee() {
+    void saveEmployee() {
         employeeService.saveEmployee("  John Doe  ");
         verify(employeeDao).saveEmployee("John Doe");
     }
